@@ -34,8 +34,17 @@ public class ThreadedReverseGreeting {
 	public static void main(String[] args) {
 		//5. Create the first thread and initialize it with an object of the ThreadedGreeter class.
 		//   The ThreadedGreeter object should be initialized with 1.
+		System.out.println("Hello");
+		Thread one = new Thread(new ThreadedGreeter(1));
 		
-		
+		one.start();
+		try {
+			one.join();
+		} catch (InterruptedException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		//6. Start and join the thread. Did you get the required output?
 	}
+	
 }

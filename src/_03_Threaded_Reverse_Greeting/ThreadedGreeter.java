@@ -4,14 +4,25 @@ public class ThreadedGreeter implements Runnable{
 
 	int threadNumber;
 	
-	ThreadedGreeter(){
-		threadNumber = 0;
+	ThreadedGreeter(int threadNumber){
+		this.threadNumber = threadNumber;
 		
 	}
 	@Override
 	public void run() {
 		// TODO Auto-generated method stub
-		System.out.println("Hello from thread number: " + threadNumber);
+		
+		if(threadNumber <= 50) {
+			Thread t = new Thread(new ThreadedGreeter(threadNumber +1));
+			t.start();
+			System.out.println("Hello from thread number: " + threadNumber);
+			try {
+				t.join();
+			} catch (InterruptedException e) {
+				// TODO Auto-generated catch block
+				e.printStackTrace();
+			}
+		}
 	}
 
 }
