@@ -1,8 +1,7 @@
 package _04_Thread_Pool;
 
 public interface Task {
-	static void perform() {
-		
-		
-	}
+	
+	abstract void perform();
+	
 }
