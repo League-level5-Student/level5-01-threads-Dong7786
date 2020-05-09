@@ -9,7 +9,8 @@ package _05_Synchronized_Swimming;
  */
 public class Swimmer extends Thread {
 	public final String name;
-
+	boolean step = true;
+	
 	public Swimmer(String name) {
 		this.name = name;
 	}
